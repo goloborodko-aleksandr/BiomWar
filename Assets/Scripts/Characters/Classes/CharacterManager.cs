@@ -5,7 +5,6 @@ using Characters.Interfaces;
 using Characters.Mono;
 using GenerateAndCreateMap.Interfaces;
 using GenerateAndCreateMap.Mono;
-using Tools;
 using UnityEngine;
 using Zenject;
 
@@ -36,11 +35,11 @@ namespace Characters.Classes
         public void Input(IPoint point)
         {
             if(!player.IsMove) return;
-            Move(point);
+            MoveTo(point);
         }
 
 
-        public void Move(IPoint point)
+        public void MoveTo(IPoint point)
         {
             var target = point.GetPoint();
             var walkables = CheckPath(player, player.CharacterSpeed);

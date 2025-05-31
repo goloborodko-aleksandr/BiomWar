@@ -5,6 +5,6 @@ namespace Characters.Interfaces
 {
     public interface IMover
     {
-        void Move(IPoint point);
+        void MoveTo(IPoint point);
     }
 }

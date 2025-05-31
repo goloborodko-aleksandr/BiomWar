@@ -1,4 +1,7 @@
-﻿using Characters.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using Characters.Classes;
+using Characters.Interfaces;
 using GenerateAndCreateMap.Mono;
 using UnityEngine;
 using Zenject;
@@ -10,7 +13,9 @@ namespace Characters.Mono
         [SerializeField] private float coolDownMove;
         private Floor floor;
         private float progressTime;
-        
+        private Fsm status;
+        private Fsm debuff;
+
         public override Floor Floor
         {
             get => floor;
@@ -28,7 +33,6 @@ namespace Characters.Mono
         private void Update()
         {
             progressTime += Time.deltaTime * CharacterSpeed;
-            Debug.Log(ProgressMoveValue);
         }
     }
 }
