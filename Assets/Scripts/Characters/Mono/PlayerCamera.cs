@@ -7,17 +7,18 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
 
-public class PlayerCamera : MonoBehaviour,IFollover
+public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera playerCamera;
     private Transform player;
     private Transform mapCenter;
     
     [Inject]
-    public void Construct(IPlayer player, MapCenter mapCenter)
+    public void Construct(Player player, MapCenter mapCenter)
     {
-        this.player = player.MainPlayerTransform;
-        this.mapCenter = mapCenter.CenterTransform;
+        
+        this.player = player.transform;
+        this.mapCenter = mapCenter.transform;
         playerCamera.m_Follow = this.player;
         playerCamera.m_LookAt = this.mapCenter;
     }

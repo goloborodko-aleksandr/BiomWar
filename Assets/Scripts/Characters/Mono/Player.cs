@@ -5,9 +5,30 @@ using Zenject;
 
 namespace Characters.Mono
 {
-    public class Player: BaseCharacter,IPlayer
+    public class Player: BaseCharacter
     {
-        public Transform MainPlayerTransform => transform;
+        [SerializeField] private float coolDownMove;
+        private Floor floor;
+        private float progressTime;
         
+        public override Floor Floor
+        {
+            get => floor;
+            set
+            {
+                floor = value;
+                progressTime = 0;
+            }
+        }
+
+        public float ProgressMoveValue => Mathf.Clamp(progressTime / coolDownMove, 0, 1);
+        public bool IsMove => ProgressMoveValue >= 1;
+
+
+        private void Update()
+        {
+            progressTime += Time.deltaTime * CharacterSpeed;
+            Debug.Log(ProgressMoveValue);
+        }
     }
 }

@@ -11,47 +11,49 @@ using Zenject;
 
 namespace Characters.Classes
 {
-    public class CharacterMoveManager : IMovable, IDisposable
+    public class CharacterManager : IMover, IDisposable
     {
-        private IPlayer player;
-        private BaseCharacter character;
-        private TimerService timerService;
+        private Player player;
         private IInput input;
         private Map map;
         private IShowWay showWay;
 
 
         [Inject]
-        CharacterMoveManager(IPlayer player, Map map, IInput input, IShowWay showWay, TimerService timerService)
+        CharacterManager(Player player, Map map, IInput input, IShowWay showWay)
         {
             Debug.Log($"Creating CharacterMoveManager");
             this.player = player;
             this.map = map;
             this.input = input;
-            this.timerService = timerService;
             this.showWay = showWay;
-            character = (BaseCharacter)this.player;
-            map.GetPointsMap().Last().ComeCharacter(character);
-            character.transform.position = character.Floor.transform.position + Vector3.up; //пока стартуем здесь
-            this.showWay.Show(CheckPath(character, character.CharacterSpeed));
-            input.OnDirectionInput += Move;
+            map.GetPointsMap().Last().ComeCharacter(this.player); //пока стартуем здесь
+            this.player.transform.position = this.player.Floor.transform.position + Vector3.up; //пока стартуем здесь
+            this.showWay.Show(CheckPath(this.player, this.player.CharacterSpeed));
+            input.OnDirectionInput += Input;
+        }
+
+        public void Input(IPoint point)
+        {
+            if(!player.IsMove) return;
+            Move(point);
         }
 
 
         public void Move(IPoint point)
         {
-            int testSpeedFormula = character.CharacterSpeed; // дистанция клеток от скорости будет зависеть
             var target = point.GetPoint();
-            var walkables = CheckPath(character, testSpeedFormula);
+            var walkables = CheckPath(player, player.CharacterSpeed);
             Floor floor = walkables.FirstOrDefault(i => i.GetPoint() == target);
             if (!walkables.Contains(floor)) return;
-            player.MainPlayerTransform.position = floor.transform.position + Vector3.up;
-            floor.ComeCharacter(character);
-            showWay.Show(CheckPath(character, character.CharacterSpeed));
+            player.transform.position = floor.transform.position + Vector3.up;
+            floor.ComeCharacter(player);
+            showWay.Show(CheckPath(player, player.CharacterSpeed));
         }
 
-        private List<Floor> CheckPath(BaseCharacter character, int distance)
+        private List<Floor> CheckPath(BaseCharacter character, int characterSpeed)
         {
+            int distance = characterSpeed / 5 < 1 ? 1 : characterSpeed / 4;
             var walkables = map.GetPointsMap().Where(i =>
             {
                 var delta = character.Floor.GetPoint() - i.GetPoint();
@@ -67,7 +69,7 @@ namespace Characters.Classes
 
         public void Dispose()
         {
-            input.OnDirectionInput -= Move;
+            input.OnDirectionInput -= Input;
         }
     }
 }

@@ -4,6 +4,7 @@ using Characters.Mono;
 using Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 using Zenject;
 
 namespace Installs
@@ -13,11 +14,18 @@ namespace Installs
         [SerializeField] private Player player;
         [SerializeField] private MapCenter mapCenter;
         [SerializeField] private PlayerCamera playerCamera;
-        [SerializeField] private ArrowsInput arrowsInput;
+        [SerializeField] private BiomInput biomInput;
         [SerializeField] private SquareShow squareShow;
+        [SerializeField] private PlayerProgressBar playerProgressBar;
+        [SerializeField] private Canvas PlayGameCanvas;
         public override void InstallBindings()
         {
 
+            Container
+                .Bind<Canvas>()
+                .FromInstance(PlayGameCanvas)
+                .AsSingle();
+            
             Container
                 .Bind<IShowWay>()
                 .FromComponentInNewPrefab(squareShow)
@@ -29,7 +37,7 @@ namespace Installs
                 .AsSingle();
             
             Container
-                .BindInterfacesAndSelfTo<IFollover>()
+                .BindInterfacesAndSelfTo<PlayerCamera>()
                 .FromInstance(playerCamera)
                 .AsSingle();
            
@@ -39,22 +47,30 @@ namespace Installs
                 .AsSingle();
 
             Container
-                .BindInterfacesAndSelfTo<CharacterMoveManager>()
+                .BindInterfacesAndSelfTo<CharacterManager>()
                 .FromNew()
                 .AsSingle()
                 .NonLazy();
             
             Container
-                .Bind<IPlayer>()
-                .To<Player>()
+                .Bind<Player>()
                 .FromComponentInNewPrefab(player)
                 .AsSingle();
             
             Container
                 .Bind<IInput>()
-                .To<ArrowsInput>()
-                .FromComponentInNewPrefab(arrowsInput)
+                .To<BiomInput>()
+                .FromComponentInNewPrefab(biomInput)
                 .AsSingle();
+
+            Container
+                .Bind<IProgressBar>()
+                .To<PlayerProgressBar>()
+                .FromComponentInNewPrefab(playerProgressBar)
+                .UnderTransform(PlayGameCanvas.transform)
+                .AsSingle()
+                .NonLazy();
+
         }
     }
 }

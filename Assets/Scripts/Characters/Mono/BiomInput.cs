@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Characters.Mono
 {
-    public class ArrowsInput : MonoBehaviour, IInput
+    public class BiomInput : MonoBehaviour, IInput
     {
         public event Action<IPoint> OnDirectionInput;
 

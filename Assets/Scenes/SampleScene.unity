@@ -224,8 +224,10 @@ MonoBehaviour:
   player: {fileID: 518591310256024236, guid: 7f6788b365259bf4cb2888fe03e46fc7, type: 3}
   mapCenter: {fileID: 1767422554}
   playerCamera: {fileID: 8768480631017855883}
-  arrowsInput: {fileID: 2516353913847500953, guid: 4d17f28f79d550143aeffeb79471929d, type: 3}
+  biomInput: {fileID: 2516353913847500953, guid: 4d17f28f79d550143aeffeb79471929d, type: 3}
   squareShow: {fileID: 7052109920762907709, guid: 164677594d99fbb439330be837f73b53, type: 3}
+  playerProgressBar: {fileID: 4792147622712794358, guid: 75e603653eac18f4aa6602affb80f710, type: 3}
+  PlayGameCanvas: {fileID: 622299969}
 --- !u!1 &622299966
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

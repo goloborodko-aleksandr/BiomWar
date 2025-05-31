@@ -3,7 +3,7 @@ using GenerateAndCreateMap.Interfaces;
 
 namespace Characters.Interfaces
 {
-    public interface IMovable
+    public interface IMover
     {
         void Move(IPoint point);
     }
