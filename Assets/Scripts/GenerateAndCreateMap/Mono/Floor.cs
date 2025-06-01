@@ -32,6 +32,7 @@ namespace GenerateAndCreateMap.Mono
 
         public void ComeCharacter(BaseCharacter character)
         {
+            character.Floor?.Characters.Remove(character);
             Characters.Add(character);
             character.Floor = this;
         }

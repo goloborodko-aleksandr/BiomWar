@@ -12,6 +12,18 @@ namespace Characters.Classes
         {
             states.Add(state.GetType(), state);
         }
+        
+        public void OverrideState(IState oldState, IState newState)
+        {
+            if (states.ContainsKey(oldState.GetType()))
+            {
+                states[oldState.GetType()] = newState;
+            }
+            else
+            {
+                AddState(newState);
+            }
+        }
 
         public Fsm(Dictionary<Type, IState> states)
         {

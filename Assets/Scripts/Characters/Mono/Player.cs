@@ -15,16 +15,8 @@ namespace Characters.Mono
         private float progressTime;
         private Fsm status;
         private Fsm debuff;
+        public override Floor Floor { get; set; }
 
-        public override Floor Floor
-        {
-            get => floor;
-            set
-            {
-                floor = value;
-                progressTime = 0;
-            }
-        }
 
         public float ProgressMoveValue => Mathf.Clamp(progressTime / coolDownMove, 0, 1);
         public bool IsMove => ProgressMoveValue >= 1;
@@ -33,6 +25,8 @@ namespace Characters.Mono
         private void Update()
         {
             progressTime += Time.deltaTime * CharacterSpeed;
+            status?.Update();
+            debuff?.Update();
         }
     }
 }
