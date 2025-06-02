@@ -39,7 +39,7 @@ namespace Installs
                 .AsSingle();
 
             Container
-                .BindInterfacesAndSelfTo<CharacterManager>()
+                .BindInterfacesAndSelfTo<CharacterMoveHandler>()
                 .FromNew()
                 .AsSingle()
                 .NonLazy();

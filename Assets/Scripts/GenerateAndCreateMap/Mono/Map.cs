@@ -11,7 +11,7 @@ namespace GenerateAndCreateMap.Mono
     {
         private IFloorFactory factory;
         private List<IPoint> points;
-        private List<Floor> pointsMap = new();
+        private List<Floor> floorsMap = new();
 
         [Inject]
         void Construct(IFloorFactory factory, List<IPoint> points)
@@ -28,11 +28,11 @@ namespace GenerateAndCreateMap.Mono
             {
                 var floor = factory.CreateFloor(point, transform);
                 floor.Initialize(point);
-                pointsMap.Add(floor);
+                floorsMap.Add(floor);
             }
-            Debug.Log($"Map created {pointsMap.Count}");
+            Debug.Log($"Map created {floorsMap.Count}");
         }
 
-        public List<Floor> GetPointsMap() => pointsMap;
+        public List<Floor> GetFloorsMap() => floorsMap;
     }
 }
