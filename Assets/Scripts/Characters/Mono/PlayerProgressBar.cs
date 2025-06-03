@@ -27,13 +27,15 @@ namespace Characters.Mono
             set
             {
                 progressBar.fillAmount = value;
+                transform.position = mainCamera.WorldToScreenPoint(player.transform.position + offset);
+                if (player.ProgressMoveValue >= 1) { Hide(); return; }
+                if (player.ProgressMoveValue == 0) Show();
             }
         }
 
         private void Update()
         {
             Progress = player.ProgressMoveValue;
-            transform.position = mainCamera.WorldToScreenPoint(player.transform.position + offset);
         }
 
         public void Show()

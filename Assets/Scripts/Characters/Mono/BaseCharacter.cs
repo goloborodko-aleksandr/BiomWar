@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Characters.Interfaces;
 using GenerateAndCreateMap.Mono;
 using UnityEngine;
 
@@ -14,7 +16,10 @@ namespace Characters.Mono
         public int CharacterSpeed => characterSpeed;
         public int CharacterLucky => characterLucky;
 
-        public abstract Floor Floor{get; set;}
+        public abstract Floor CurrentFloor{get; set;}
+        public abstract List<Floor> EligibleFloors { get; }
+        public abstract Floor TargetFloor{ get; }
+        public abstract IShowWay ShowWay { get; }
         
     }
 }

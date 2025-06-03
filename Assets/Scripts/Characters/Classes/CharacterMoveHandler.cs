@@ -28,39 +28,42 @@ namespace Characters.Classes
             this.player = player;
             this.map = map;
             this.input = input;
+            //init
             var startFloor = this.map.GetFloorsMap().Last();
-            this.player.SetPath(startFloor, GetVariantsPath(player, startFloor));
+            var variants = GetVariantsPath(this.player, startFloor);
+            this.player.Init(startFloor, variants);
+            //init
             this.input
                 .OnDirectionInput
                 .Subscribe(Path)
                 .AddTo(compositeDisposable);
         }
 
-        public void Path(IPoint point)
+        private void Path(IPoint point)
         {
-            var eligibleFloors = GetVariantsPath(player, player.Floor);
+            var eligibleFloors = GetVariantsPath(player, player.CurrentFloor);
             var floor = eligibleFloors.FirstOrDefault(i => i.GetPoint() == point.GetPoint());
             if (eligibleFloors.Contains(floor))
             {
                 var newEligibleFloors = GetVariantsPath(player, floor);
-                player.SetPath(floor, newEligibleFloors);    
+                player.Move(floor, newEligibleFloors);    
             }
         }
         
 
-        private List<Floor> GetVariantsPath(BaseCharacter character, Floor targetFloor)
+        private List<Floor> GetVariantsPath(BaseCharacter character, Floor floorAround)
         {
             int distance = character.CharacterSpeed / 4 < 1 ? 1 : character.CharacterSpeed / 4;
-            var walkables = map.GetFloorsMap().Where(i =>
+            var eligibleFloors = map.GetFloorsMap().Where(i =>
             {
-                var delta = targetFloor.GetPoint() - i.GetPoint();
+                var delta = floorAround.GetPoint() - i.GetPoint();
                 return !(
                     delta == Vector3.zero
                     || !i.IsWalkable
                     || Mathf.Abs(delta.x) > distance || Mathf.Abs(delta.z) > distance //допустимая длина клеток
                     || Mathf.Abs(delta.x) != 0 && Mathf.Abs(delta.z) != 0); // по диагонали ходьба
             }).ToList();
-            return walkables;
+            return eligibleFloors;
         }
         
 

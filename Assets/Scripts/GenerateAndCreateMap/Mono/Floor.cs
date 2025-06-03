@@ -32,9 +32,9 @@ namespace GenerateAndCreateMap.Mono
 
         public void ComeCharacter(BaseCharacter character)
         {
-            character.Floor?.Characters.Remove(character);
+            character.CurrentFloor?.Characters.Remove(character);
             Characters.Add(character);
-            character.Floor = this;
+            character.CurrentFloor = this;
         }
 
         public Vector3 GetPoint() => new Vector3(x, y, z);

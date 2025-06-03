@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Characters.Classes
 {
     public class Fsm
     {
         private IState currentState{get; set;}
-        private Dictionary<Type, IState> states;
+        private Dictionary<Type, IState> states = new Dictionary<Type, IState>();
 
         public void AddState(IState state)
         {
@@ -25,17 +26,10 @@ namespace Characters.Classes
             }
         }
 
-        public Fsm(Dictionary<Type, IState> states)
-        {
-            this.states = states;
-        }
-        
-        public Fsm():this(new Dictionary<Type, IState>()){}
-
         public void ChangeState<T>() where T : IState
         {
             var type = typeof(T);
-            if(currentState.GetType() == type) return;
+            if(currentState?.GetType() == type)return;
             if (states.TryGetValue(type, out var newCurrentState))
             {
                 currentState?.ExitState();
