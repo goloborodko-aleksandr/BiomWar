@@ -29,22 +29,6 @@ namespace Installs
                 .NonLazy();
             
             
-            Container
-                .Bind<GrassFloor>()
-                .FromInstance(grassPrefab)
-                .AsSingle();
-            
-            Container
-                .Bind<LavaFloor>()
-                .FromInstance(lavaPrefab)
-                .AsSingle();
-            
-            Container
-                .Bind<WaterFloor>()
-                .FromInstance(waterPrefab)
-                .AsSingle();
-            
-            
             var prefabMap = new Dictionary<FloorType, Floor>
             {
                 { FloorType.Grass, grassPrefab },

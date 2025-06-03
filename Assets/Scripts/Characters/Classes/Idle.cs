@@ -18,8 +18,7 @@ namespace Characters.Classes
         }
         public void EnterState()
         {
-            Debug.Log($"Entering state: {this}");
-            player.ShowWay.Show(player.EligibleFloors);
+            
         }
 
         public void ExitState()

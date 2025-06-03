@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using Characters.Interfaces;
 using GenerateAndCreateMap.Interfaces;
 using R3;
@@ -8,7 +8,8 @@ namespace Characters.Mono
 {
     public class BiomInput : MonoBehaviour, IInput
     {
-        public Subject<IPoint> OnDirectionInput { get; } = new Subject<IPoint>();
+        private readonly Subject<IPoint> onDirectionInput = new Subject<IPoint>();
+        public Observable<IPoint> OnDirectionInput => onDirectionInput;
 
         private void Update()
         {
@@ -19,7 +20,7 @@ namespace Characters.Mono
                 {
                     if (hit.collider.TryGetComponent<IPoint>(out IPoint point))
                     {
-                        OnDirectionInput.OnNext(point);
+                        onDirectionInput.OnNext(point);
                     }
                 }
             }

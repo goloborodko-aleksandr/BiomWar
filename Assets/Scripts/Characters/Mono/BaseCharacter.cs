@@ -19,7 +19,5 @@ namespace Characters.Mono
         public abstract Floor CurrentFloor{get; set;}
         public abstract List<Floor> EligibleFloors { get; }
         public abstract Floor TargetFloor{ get; }
-        public abstract IShowWay ShowWay { get; }
-        
     }
 }

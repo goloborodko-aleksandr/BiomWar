@@ -10,7 +10,6 @@ namespace Characters.Classes
     public class Move: IState
     {
         private Player player;
-        private IShowWay showWay;
         private float elapsed;
         private float duration;
         private Vector3 start;
@@ -22,7 +21,6 @@ namespace Characters.Classes
         {
             this.fsm = fsm;
             this.player = player;
-            showWay = this.player.ShowWay;
         }
         public void EnterState()
         {
@@ -30,14 +28,11 @@ namespace Characters.Classes
             end = player.TargetFloor.transform.position + Vector3.up;
             elapsed = 0f;
             duration = 1;
-            Debug.Log("Move Entered");
-            showWay.Hide();
             player.ProgressTime = 0;
             Observable
                 .Timer(TimeSpan.FromSeconds(duration))
                 .Subscribe(_ =>
                 {
-                    Debug.Log("Move Exited R3");
                     player.TargetFloor.ComeCharacter(player);
                     fsm.ChangeState<Idle>();
                 })
@@ -58,7 +53,6 @@ namespace Characters.Classes
                 elapsed += Time.deltaTime;
                 float t = Mathf.Clamp01(elapsed / duration);
                 player.transform.position = Vector3.Lerp(start, end, t);
-                Debug.Log($"Move Exited {elapsed}  time: {t}");
             }
         }
     }

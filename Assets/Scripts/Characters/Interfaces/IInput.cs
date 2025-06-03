@@ -8,6 +8,6 @@ namespace Characters.Interfaces
 {
     public interface IInput
     {
-        public Subject<IPoint> OnDirectionInput { get;}
+        public Observable<IPoint> OnDirectionInput { get; }
     }
 }

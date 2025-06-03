@@ -28,7 +28,7 @@ namespace Characters.Classes
             this.player = player;
             this.map = map;
             this.input = input;
-            //init
+            //init пока так
             var startFloor = this.map.GetFloorsMap().Last();
             var variants = GetVariantsPath(this.player, startFloor);
             this.player.Init(startFloor, variants);

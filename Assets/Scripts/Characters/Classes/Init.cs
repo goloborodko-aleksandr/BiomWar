@@ -20,11 +20,10 @@ namespace Characters.Classes
         }
         public void EnterState()
         {
-            Debug.Log($"Entering state: {this}");
             player.TargetFloor.ComeCharacter(player);
             player.transform.position = player.CurrentFloor.transform.position + Vector3.up;
             player.ProgressTime = cooldown;
-            player.ShowWay.Show(player.EligibleFloors);
+           
             fsm.ChangeState<Idle>();
         }
 

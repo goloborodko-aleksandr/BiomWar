@@ -26,7 +26,8 @@ namespace Installs
             Container
                 .Bind<IShowWay>()
                 .FromComponentInNewPrefab(squareShow)
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
 
             Container
                 .BindInterfacesAndSelfTo<MapCenter>()
