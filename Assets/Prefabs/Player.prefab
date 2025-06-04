@@ -120,5 +120,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterLevel: 1
   characterSpeed: 1
-  characterLucky: 0
+  characterLucky: 2
   coolDownMove: 5

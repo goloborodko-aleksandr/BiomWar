@@ -32,7 +32,7 @@ namespace Characters.Classes
             var startFloor = this.map.GetFloorsMap().Last();
             var variants = GetVariantsPath(this.player, startFloor);
             this.player.Init(startFloor, variants);
-            //init
+            //
             this.input
                 .OnDirectionInput
                 .Subscribe(Path)

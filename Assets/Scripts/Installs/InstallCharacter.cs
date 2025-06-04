@@ -11,7 +11,6 @@ namespace Installs
         [SerializeField] private Player player;
         [SerializeField] private MapCenter mapCenter;
         [SerializeField] private PlayerCamera playerCamera;
-        [SerializeField] private BiomInput biomInput;
         [SerializeField] private SquareShow squareShow;
         [SerializeField] private PlayerProgressBar playerProgressBar;
         [SerializeField] private Canvas PlayGameCanvas;
@@ -51,10 +50,10 @@ namespace Installs
                 .AsSingle();
 
             Container
-                .Bind<IInput>()
-                .To<BiomInput>()
-                .FromComponentInNewPrefab(biomInput)
-                .AsSingle();
+                .BindInterfacesAndSelfTo<BiomInput>()
+                .FromNew()
+                .AsSingle()
+                .NonLazy();
 
             Container
                 .Bind<IProgressBar>()
