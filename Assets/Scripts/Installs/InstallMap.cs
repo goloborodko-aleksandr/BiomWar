@@ -50,7 +50,7 @@ namespace Installs
             Container
                 .Bind<Dictionary<FloorType, bool>>()
                 .FromInstance(isWalkableMap)
-                .AsCached();
+                .AsSingle();
 
             
             Container
