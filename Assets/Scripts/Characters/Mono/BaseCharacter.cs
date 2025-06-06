@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Characters.Interfaces;
+using System.Collections.Generic;
 using GenerateAndCreateMap.Mono;
 using UnityEngine;
 

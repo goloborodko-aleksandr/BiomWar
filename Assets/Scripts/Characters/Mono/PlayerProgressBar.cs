@@ -24,6 +24,9 @@ namespace Characters.Mono
             this.player.Status.OnStateChanged
                 .Subscribe(HandlerBar)
                 .AddTo(this);
+            this.player.Progress.ProgressTimeProperty
+                .Subscribe(value => Progress = value)
+                .AddTo(this);
         }
 
         private float Progress
@@ -47,11 +50,6 @@ namespace Characters.Mono
             {
                 Hide();
             }
-        }
-
-        private void Update()
-        {
-            Progress = player.ProgressValue;
         }
 
         public void Show()

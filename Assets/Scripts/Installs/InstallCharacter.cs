@@ -27,6 +27,9 @@ namespace Installs
                 .FromComponentInNewPrefab(squareShow)
                 .AsSingle()
                 .NonLazy();
+            Container
+                .Bind<Progress>()
+                .AsCached();
 
             Container
                 .BindInterfacesAndSelfTo<MapCenter>()

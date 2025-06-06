@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Characters.Interfaces;
 using Characters.Mono;
 using GenerateAndCreateMap.Mono;
@@ -9,16 +10,18 @@ namespace Characters.Classes
     public class Idle: IState
     {
         private Player player;
+        private Action callbackProgress;
         public Fsm fsm { get; }
 
-        public Idle(Fsm fsm,  Player player)
+        public Idle(Fsm fsm,  Player player, Action callbackProgress)
         {
+            this.callbackProgress = callbackProgress;
             this.fsm = fsm; 
             this.player = player;
         }
         public void EnterState()
         {
-            
+            callbackProgress?.Invoke();
         }
 
         public void ExitState()
@@ -28,7 +31,7 @@ namespace Characters.Classes
 
         public void Update()
         {
-            player.ProgressTime += Time.deltaTime * player.CharacterSpeed;
+            
         }
     }
 }

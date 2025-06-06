@@ -22,7 +22,6 @@ namespace Characters.Classes
         {
             player.TargetFloor.ComeCharacter(player);
             player.transform.position = player.CurrentFloor.transform.position + Vector3.up;
-            player.ProgressTime = cooldown;
            
             fsm.ChangeState<Idle>();
         }

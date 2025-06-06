@@ -9,27 +9,33 @@ using Zenject;
 
 namespace Characters.Mono
 {
-    public class Player: BaseCharacter, IMovable
+    public class Player: BaseCharacter, IMovable, IProgressive
     {
         [SerializeField] private float coolDownMove;
         private List<Floor> eligibleFloors;
         private Floor targetFloor;
-        private float progressTime;
+
         private Fsm status;
         private Fsm debuff;
         public override Floor CurrentFloor { get; set; }
         public override List<Floor> EligibleFloors => eligibleFloors;
         public override Floor TargetFloor => targetFloor;
-        public float ProgressTime { get => progressTime; set => progressTime = value; }
+
         public Fsm Status => status;
         public Fsm Debuff => debuff;
 
-        public float ProgressValue => Mathf.Clamp01(progressTime / coolDownMove);
-        
+        private Progress progress;
+        public Progress Progress => progress;
+
+        [Inject]
+        public void Construct(Progress progress)
+        {
+            this.progress = progress;
+        }
 
         public void Move(Floor target, List<Floor> floors)
         {
-            if(status.CurrentState?.GetType() != typeof(Idle) || ProgressValue < 1) return;
+            if(status.CurrentState?.GetType() != typeof(Idle) || progress.ProgressTimeProperty.CurrentValue < 1) return;
             eligibleFloors = floors;
             targetFloor = target;
             status.ChangeState<Move>();
@@ -41,9 +47,10 @@ namespace Characters.Mono
             targetFloor = target;
             status = new Fsm();
             status.AddState(new Init(status,this, coolDownMove));
-            status.AddState(new Idle(status,this));
+            status.AddState(new Idle(status,this, ()=>progress.StartProgress(CharacterSpeed, coolDownMove)));
             status.AddState(new Move(status,this));
             status.ChangeState<Init>();
+            // progress.StartProgress(CharacterSpeed,coolDownMove);
         }
 
 

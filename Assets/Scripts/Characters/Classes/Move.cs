@@ -28,7 +28,16 @@ namespace Characters.Classes
             end = player.TargetFloor.transform.position + Vector3.up;
             elapsed = 0f;
             duration = 1;
-            player.ProgressTime = 0;
+            Observable
+                .EveryUpdate()
+                .Where(_ => elapsed < duration)
+                .Subscribe(_ =>
+                {
+                    elapsed += Time.deltaTime;
+                    float t = Mathf.Clamp01(elapsed / duration);
+                    player.transform.position = Vector3.Lerp(start, end, t);
+                })
+                .AddTo(_disposable);
             Observable
                 .Timer(TimeSpan.FromSeconds(duration))
                 .Subscribe(_ =>
@@ -43,17 +52,12 @@ namespace Characters.Classes
 
         public void ExitState()
         {
-            
+            _disposable.Clear();
         }
 
         public void Update()
         {
-            if (elapsed < duration)
-            {
-                elapsed += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsed / duration);
-                player.transform.position = Vector3.Lerp(start, end, t);
-            }
+
         }
     }
 }
