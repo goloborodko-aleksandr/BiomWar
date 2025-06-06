@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e55be43aab41afa8bd38b9367b49c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterLevel: 1
-  characterSpeed: 1
-  characterLucky: 2
-  coolDownMove: 5
+  _coolDown: 5
+  _characterLevel: 0
+  _characterSpeed: 2
+  _characterLucky: 0

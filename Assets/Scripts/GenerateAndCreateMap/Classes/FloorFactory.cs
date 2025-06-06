@@ -8,21 +8,21 @@ namespace GenerateAndCreateMap.Classes
 {
     public class FloorFactory: IFloorFactory
     {
-        private  DiContainer container;
-        private  Dictionary<FloorType, Floor> prefabMap;
-        private  float scaleStep;
+        private  DiContainer _container;
+        private  Dictionary<FloorType, Floor> _prefabMap;
+        private  float _scaleStep;
 
         [Inject]
         public FloorFactory(DiContainer container, Dictionary<FloorType, Floor> prefabMap, float scaleStep)
         {
-            this.container = container;
-            this.prefabMap = prefabMap;
-            this.scaleStep = scaleStep;
+            _container = container;
+            _prefabMap = prefabMap;
+            _scaleStep = scaleStep;
         }
         
         public Floor CreateFloor(IPoint point, Transform transform)
         {
-            return container.InstantiatePrefabForComponent<Floor>(prefabMap[point.GetFloorType()],point.GetPoint() * scaleStep, Quaternion.identity, transform);
+            return _container.InstantiatePrefabForComponent<Floor>(_prefabMap[point.GetFloorType()],point.GetPoint() * _scaleStep, Quaternion.identity, transform);
         }
     }
 }

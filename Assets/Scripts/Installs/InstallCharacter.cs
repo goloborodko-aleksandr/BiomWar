@@ -2,29 +2,30 @@
 using Characters.Interfaces;
 using Characters.Mono;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Installs
 {
     public class InstallCharacter : MonoInstaller
     {
-        [SerializeField] private Player player;
-        [SerializeField] private MapCenter mapCenter;
-        [SerializeField] private PlayerCamera playerCamera;
-        [SerializeField] private SquareShow squareShow;
-        [SerializeField] private PlayerProgressBar playerProgressBar;
-        [SerializeField] private Canvas PlayGameCanvas;
+        [SerializeField] private Player _player;
+        [SerializeField] private MapCenter _mapCenter;
+        [SerializeField] private PlayerCamera _playerCamera;
+        [FormerlySerializedAs("_squareShow")] [SerializeField] private Square square;
+        [SerializeField] private PlayerProgressBar _playerProgressBar;
+        [SerializeField] private Canvas _playGameCanvas;
 
         public override void InstallBindings()
         {
             Container
                 .Bind<Canvas>()
-                .FromInstance(PlayGameCanvas)
+                .FromInstance(_playGameCanvas)
                 .AsSingle();
 
             Container
-                .Bind<IShowWay>()
-                .FromComponentInNewPrefab(squareShow)
+                .Bind<IWayVisualizer>()
+                .FromComponentInNewPrefab(square)
                 .AsSingle()
                 .NonLazy();
             Container
@@ -33,12 +34,12 @@ namespace Installs
 
             Container
                 .BindInterfacesAndSelfTo<MapCenter>()
-                .FromInstance(mapCenter)
+                .FromInstance(_mapCenter)
                 .AsSingle();
 
             Container
                 .BindInterfacesAndSelfTo<PlayerCamera>()
-                .FromInstance(playerCamera)
+                .FromInstance(_playerCamera)
                 .AsSingle();
 
             Container
@@ -49,7 +50,7 @@ namespace Installs
 
             Container
                 .Bind<Player>()
-                .FromComponentInNewPrefab(player)
+                .FromComponentInNewPrefab(_player)
                 .AsSingle();
 
             Container
@@ -61,8 +62,8 @@ namespace Installs
             Container
                 .Bind<IProgressBar>()
                 .To<PlayerProgressBar>()
-                .FromComponentInNewPrefab(playerProgressBar)
-                .UnderTransform(PlayGameCanvas.transform)
+                .FromComponentInNewPrefab(_playerProgressBar)
+                .UnderTransform(_playGameCanvas.transform)
                 .AsSingle()
                 .NonLazy();
         }

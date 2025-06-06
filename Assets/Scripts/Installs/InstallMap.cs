@@ -11,31 +11,31 @@ namespace Installs
 {
     public class InstallMap : MonoInstaller
     {
-        [SerializeField] Map map;
-        [SerializeField] GrassFloor grassPrefab;
-        [SerializeField] LavaFloor lavaPrefab;
-        [SerializeField] WaterFloor waterPrefab;
-        [SerializeField] StoneFloor stonePrefab;
-        [SerializeField] GroundFloor groundPrefab;
-        [SerializeField] private float scaleStep;
-        [SerializeField] private FloorMap floorMap;
-        private List<Point> points => floorMap.points;
+        [SerializeField] Map _map;
+        [SerializeField] GrassFloor _grassPrefab;
+        [SerializeField] LavaFloor _lavaPrefab;
+        [SerializeField] WaterFloor _waterPrefab;
+        [SerializeField] StoneFloor _stonePrefab;
+        [SerializeField] GroundFloor _groundPrefab;
+        [SerializeField] private float _scaleStep;
+        [SerializeField] private FloorMap _floorMap;
+        private List<Point> points => _floorMap.points;
         public override void InstallBindings()
         {
             Container
                 .Bind<Map>()
-                .FromInstance(map)
+                .FromInstance(_map)
                 .AsSingle()
                 .NonLazy();
             
             
             var prefabMap = new Dictionary<FloorType, Floor>
             {
-                { FloorType.Grass, grassPrefab },
-                { FloorType.Water, waterPrefab },
-                { FloorType.Lava, lavaPrefab },
-                { FloorType.Stone, stonePrefab },
-                { FloorType.Ground,  groundPrefab},
+                { FloorType.Grass, _grassPrefab },
+                { FloorType.Water, _waterPrefab },
+                { FloorType.Lava, _lavaPrefab },
+                { FloorType.Stone, _stonePrefab },
+                { FloorType.Ground,  _groundPrefab},
             };
             
             var isWalkableMap = new Dictionary<FloorType, bool>
@@ -57,7 +57,7 @@ namespace Installs
                 .Bind<IFloorFactory>()
                 .To<FloorFactory>()
                 .AsSingle()
-                .WithArguments(prefabMap, scaleStep);
+                .WithArguments(prefabMap, _scaleStep);
 
             Container
                 .Bind<List<IPoint>>()

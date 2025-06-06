@@ -6,23 +6,25 @@ namespace Characters.Classes
 {
     public class Progress : IDisposable
     {
-        private readonly ReactiveProperty<float> progressTimeProperty = new ReactiveProperty<float>(0f);
-        private ReadOnlyReactiveProperty<float> progressTimeReadOnly;
-        public ReadOnlyReactiveProperty<float> ProgressTimeProperty => progressTimeReadOnly;
-        private readonly CompositeDisposable disposable = new CompositeDisposable();
-        private bool isRunning = false;
+        private readonly ReactiveProperty<float> _progressTimeProperty = new ReactiveProperty<float>(0f);
+        private ReadOnlyReactiveProperty<float> _progressTimeReadOnly;
+        private bool _isRunning = false;
+        private readonly CompositeDisposable _disposable = new CompositeDisposable();
+        public ReadOnlyReactiveProperty<float> ProgressTimeProperty => _progressTimeReadOnly;
+        private readonly Subject<Unit> _progressDone = new Subject<Unit>();
+        public Observable<Unit> ProgressDone => _progressDone;
 
         public Progress()
         {
-            progressTimeReadOnly = progressTimeProperty.ToReadOnlyReactiveProperty();
+            _progressTimeReadOnly = _progressTimeProperty.ToReadOnlyReactiveProperty();
         }
 
         public void StartProgress(int speed, float coolDown)
         {
-            if (isRunning)
+            if (_isRunning)
                 return;
-            isRunning = true;
-            progressTimeProperty.Value = 0f;
+            _isRunning = true;
+            _progressTimeProperty.Value = 0f;
             Observable
                 .EveryUpdate()
                 .Select(_ => Time.deltaTime * speed)
@@ -31,15 +33,19 @@ namespace Characters.Classes
                 .TakeUntil(progress => progress  >= 1)
                 .Subscribe(progress =>
                 {
-                    progressTimeProperty.Value = progress;
-                    if(progressTimeProperty.Value >= 1) isRunning = false;
+                    _progressTimeProperty.Value = progress;
+                    if (_progressTimeProperty.Value >= 1)
+                    {
+                        _isRunning = false;
+                        _progressDone.OnNext(Unit.Default);
+                    }
                 })
-                .AddTo(disposable);
+                .AddTo(_disposable);
         }
 
         public void Dispose()
         {
-            disposable.Dispose();
+            _disposable.Dispose();
         }
     }
 }

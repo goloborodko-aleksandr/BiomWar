@@ -9,19 +9,18 @@ namespace Characters.Classes
 {
     public class Idle: IState
     {
-        private Player player;
-        private Action callbackProgress;
+        private BaseCharacter _character;
+
         public Fsm fsm { get; }
 
-        public Idle(Fsm fsm,  Player player, Action callbackProgress)
+        public Idle(Fsm fsm,  BaseCharacter character)
         {
-            this.callbackProgress = callbackProgress;
             this.fsm = fsm; 
-            this.player = player;
+            _character = character;
         }
         public void EnterState()
         {
-            callbackProgress?.Invoke();
+            _character.Progress.StartProgress(_character.CharacterSpeed, _character.CoolDown);
         }
 
         public void ExitState()

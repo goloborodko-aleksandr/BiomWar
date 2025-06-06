@@ -9,17 +9,17 @@ using Zenject;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera playerCamera;
-    private Transform player;
-    private Transform mapCenter;
+    [SerializeField] private CinemachineVirtualCamera _playerCamera;
+    private Transform _player;
+    private Transform _mapCenter;
     
     [Inject]
     public void Construct(Player player, MapCenter mapCenter)
     {
         
-        this.player = player.transform;
-        this.mapCenter = mapCenter.transform;
-        playerCamera.m_Follow = this.player;
-        playerCamera.m_LookAt = this.mapCenter;
+        _player = player.transform;
+        _mapCenter = mapCenter.transform;
+        _playerCamera.m_Follow = _player;
+        _playerCamera.m_LookAt = _mapCenter;
     }
 }

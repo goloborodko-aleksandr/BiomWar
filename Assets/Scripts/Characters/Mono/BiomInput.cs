@@ -9,19 +9,18 @@ namespace Characters.Mono
 {
     public class BiomInput : IInput, IInitializable, IDisposable
     {
-        private Camera cameraInput;
-        private readonly Subject<IPoint> onDirectionInput = new Subject<IPoint>();
-        private readonly CompositeDisposable disposable = new CompositeDisposable();
-        public Observable<IPoint> OnDirectionInput => onDirectionInput;
+        private Camera _cameraInput;
+        private readonly Subject<IPoint> _onDirectionInput = new Subject<IPoint>();
+        private readonly CompositeDisposable _disposable = new CompositeDisposable();
+        public Observable<IPoint> OnDirectionInput => _onDirectionInput;
 
         public void Initialize()
         {
-            Debug.Log("Initializing BiomInput");
-            cameraInput = Camera.main;
+            _cameraInput = Camera.main;
             Observable
                 .EveryUpdate()
                 .Where(_ => Input.GetMouseButtonDown(0))
-                .Select(_ => cameraInput.ScreenPointToRay(Input.mousePosition))
+                .Select(_ => _cameraInput.ScreenPointToRay(Input.mousePosition))
                 .Select(ray =>
                 {
                     if (Physics.Raycast(ray, out RaycastHit hit))
@@ -32,13 +31,13 @@ namespace Characters.Mono
                     return null;
                 })
                 .Where(point => point != null)
-                .Subscribe(point=> onDirectionInput.OnNext(point))
-                .AddTo(disposable);
+                .Subscribe(point=> _onDirectionInput.OnNext(point))
+                .AddTo(_disposable);
         }
 
         public void Dispose()
         {
-            disposable?.Dispose();
+            _disposable?.Dispose();
         }
     }
 }

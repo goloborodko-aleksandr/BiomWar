@@ -9,40 +9,27 @@ namespace Characters.Classes
 {
     public class Move: IState
     {
-        private Player player;
-        private float elapsed;
-        private float duration;
-        private Vector3 start;
-        private Vector3 end;
+        private Player _player;
+        private Vector3 _start;
+        private Vector3 _end;
         public Fsm fsm { get; }
         private CompositeDisposable _disposable { get; } = new CompositeDisposable();
 
         public Move(Fsm fsm, Player player)
         {
             this.fsm = fsm;
-            this.player = player;
+            _player = player;
         }
         public void EnterState()
         {
-            start = player.transform.position;
-            end = player.TargetFloor.transform.position + Vector3.up;
-            elapsed = 0f;
-            duration = 1;
+            _start = _player.transform.position;
+            _end = _player.TargetFloor.transform.position + Vector3.up;
+            _player.transform.position = _end;
+            _player.TargetFloor.ComeCharacter(_player);
             Observable
-                .EveryUpdate()
-                .Where(_ => elapsed < duration)
+                .Timer(TimeSpan.FromSeconds(0.3f))
                 .Subscribe(_ =>
                 {
-                    elapsed += Time.deltaTime;
-                    float t = Mathf.Clamp01(elapsed / duration);
-                    player.transform.position = Vector3.Lerp(start, end, t);
-                })
-                .AddTo(_disposable);
-            Observable
-                .Timer(TimeSpan.FromSeconds(duration))
-                .Subscribe(_ =>
-                {
-                    player.TargetFloor.ComeCharacter(player);
                     fsm.ChangeState<Idle>();
                 })
                 .AddTo(_disposable);

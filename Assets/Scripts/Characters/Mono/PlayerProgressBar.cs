@@ -10,46 +10,41 @@ namespace Characters.Mono
 {
     public class PlayerProgressBar: MonoBehaviour, IProgressBar
     {
-        [SerializeField] private Image progressBar;
-        [SerializeField] private Vector3 offset;
-        private Player player;
-        private Camera mainCamera;
+        [SerializeField] private Image _progressBar;
+        [SerializeField] private Vector3 _offset;
+        private Player _player;
+        private Camera _mainCamera;
 
 
         [Inject]
         public void Construct(Player player)
         {
-            this.player = player;
-            mainCamera = Camera.main;
-            this.player.Status.OnStateChanged
+            _player = player;
+            _mainCamera = Camera.main;
+            _player.Status.OnStateChanged
                 .Subscribe(HandlerBar)
                 .AddTo(this);
-            this.player.Progress.ProgressTimeProperty
+            _player.Progress.ProgressTimeProperty
                 .Subscribe(value => Progress = value)
+                .AddTo(this);
+            _player.Progress.ProgressDone
+                .Subscribe(_=> Hide())
                 .AddTo(this);
         }
 
         private float Progress
         {
-            get => progressBar.fillAmount;
+            get => _progressBar.fillAmount;
             set
             {
-                progressBar.fillAmount = value;
-                transform.position = mainCamera.WorldToScreenPoint(player.transform.position + offset);
+                _progressBar.fillAmount = value;
+                transform.position = _mainCamera.WorldToScreenPoint(_player.transform.position + _offset);
             }
         }
 
         private void HandlerBar(Type type)
         {
-            if (type == typeof(Idle))
-            {
-                Show();
-                return;
-            }
-            if (type == typeof(Move))
-            {
-                Hide();
-            }
+            if (type == typeof(Idle)) Show();
         }
 
         public void Show()

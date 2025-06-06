@@ -60,10 +60,10 @@ public class FloorMapEditor : Editor
                     SerializedProperty pointProp = pointsProp.GetArrayElementAtIndex(i);
                     if (pointProp != null)
                     {
-                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("x"), GUIContent.none);
-                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("y"), GUIContent.none);
-                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("z"), GUIContent.none);
-                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("floorType"), GUIContent.none);
+                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("_x"), GUIContent.none);
+                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("_y"), GUIContent.none);
+                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("_z"), GUIContent.none);
+                        EditorGUILayout.PropertyField(pointProp.FindPropertyRelative("_floorType"), GUIContent.none);
                     }
                     
                     if (GUILayout.Button("×", GUILayout.Width(20)))

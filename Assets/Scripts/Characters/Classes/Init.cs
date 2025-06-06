@@ -8,21 +8,18 @@ namespace Characters.Classes
 {
     public class Init: IState
     {
-        private Player player;
-        float cooldown;
+        private BaseCharacter _character;
         public Fsm fsm { get; }
 
-        public Init(Fsm fsm, Player player, float cooldown)
+        public Init(Fsm fsm, Player character)
         {
             this.fsm = fsm;
-            this.player = player;
-            this.cooldown = cooldown;
+            _character = character;
         }
         public void EnterState()
         {
-            player.TargetFloor.ComeCharacter(player);
-            player.transform.position = player.CurrentFloor.transform.position + Vector3.up;
-           
+            _character.TargetFloor.ComeCharacter(_character);
+            _character.transform.position = _character.CurrentFloor.transform.position + Vector3.up;
             fsm.ChangeState<Idle>();
         }
 

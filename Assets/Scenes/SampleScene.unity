@@ -153,14 +153,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afbd06c26406ca4cb3c927172c93b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 1886532396}
-  grassPrefab: {fileID: 5065242379754235095, guid: f8c22f3019bec98409555d4d11d2818b, type: 3}
-  lavaPrefab: {fileID: 1781255936823215962, guid: 1e109c7ca586d894286b148cd13cea35, type: 3}
-  waterPrefab: {fileID: 6985793738174118406, guid: 44cfe371b5658744abaf39ac4d062b69, type: 3}
-  stonePrefab: {fileID: 1924727922580287356, guid: 4d896ade849b460409fdcc617dd4631c, type: 3}
-  groundPrefab: {fileID: 3175876514407118846, guid: 005f6c94435a7fb4daa72b0b38ddfbf7, type: 3}
-  scaleStep: 1
-  floorMap: {fileID: 11400000, guid: 867794c8fa44d91449aa2b4ddc50a967, type: 2}
+  _map: {fileID: 1886532396}
+  _grassPrefab: {fileID: 5065242379754235095, guid: f8c22f3019bec98409555d4d11d2818b, type: 3}
+  _lavaPrefab: {fileID: 1781255936823215962, guid: 1e109c7ca586d894286b148cd13cea35, type: 3}
+  _waterPrefab: {fileID: 6985793738174118406, guid: 44cfe371b5658744abaf39ac4d062b69, type: 3}
+  _stonePrefab: {fileID: 1924727922580287356, guid: 4d896ade849b460409fdcc617dd4631c, type: 3}
+  _groundPrefab: {fileID: 3175876514407118846, guid: 005f6c94435a7fb4daa72b0b38ddfbf7, type: 3}
+  _scaleStep: 1
+  _floorMap: {fileID: 11400000, guid: 867794c8fa44d91449aa2b4ddc50a967, type: 2}
 --- !u!114 &489995637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,13 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d631a1095be4169915b87cb08073049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 518591310256024236, guid: 7f6788b365259bf4cb2888fe03e46fc7, type: 3}
-  mapCenter: {fileID: 1767422554}
-  playerCamera: {fileID: 8768480631017855883}
-  biomInput: {fileID: 2516353913847500953, guid: 4d17f28f79d550143aeffeb79471929d, type: 3}
-  squareShow: {fileID: 7052109920762907709, guid: 164677594d99fbb439330be837f73b53, type: 3}
-  playerProgressBar: {fileID: 4792147622712794358, guid: 75e603653eac18f4aa6602affb80f710, type: 3}
-  PlayGameCanvas: {fileID: 622299969}
+  _player: {fileID: 518591310256024236, guid: 7f6788b365259bf4cb2888fe03e46fc7, type: 3}
+  _mapCenter: {fileID: 1767422554}
+  _playerCamera: {fileID: 8768480631017855883}
+  square: {fileID: 7052109920762907709, guid: 164677594d99fbb439330be837f73b53, type: 3}
+  _playerProgressBar: {fileID: 4792147622712794358, guid: 75e603653eac18f4aa6602affb80f710, type: 3}
+  _playGameCanvas: {fileID: 622299969}
 --- !u!1 &622299966
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c852c6153fde415449cf2f8d6adc89db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 4536391396985503926}
+  _playerCamera: {fileID: 4536391396985503926}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

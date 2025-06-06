@@ -13,327 +13,327 @@ MonoBehaviour:
   m_Name: Floor Map1
   m_EditorClassIdentifier: 
   points:
-  - x: -4
-    y: 0
-    z: 8
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 8
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 8
-    floorType: 1
-  - x: -1
-    y: 0
-    z: 8
-    floorType: 1
-  - x: 0
-    y: 0
-    z: 8
-    floorType: 1
-  - x: 1
-    y: 0
-    z: 8
-    floorType: 1
-  - x: 2
-    y: 0
-    z: 8
-    floorType: 1
-  - x: 3
-    y: 0
-    z: 8
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 8
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 7
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 7
-    floorType: 0
-  - x: -2
-    y: 0
-    z: 7
-    floorType: 0
-  - x: -1
-    y: 0
-    z: 7
-    floorType: 0
-  - x: 0
-    y: 0
-    z: 7
-    floorType: 0
-  - x: 1
-    y: 0
-    z: 7
-    floorType: 0
-  - x: 2
-    y: 0
-    z: 7
-    floorType: 0
-  - x: 3
-    y: 0
-    z: 7
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 7
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 6
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 6
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 6
-    floorType: 1
-  - x: -1
-    y: 0
-    z: 6
-    floorType: 1
-  - x: 0
-    y: 0
-    z: 6
-    floorType: 1
-  - x: 1
-    y: 0
-    z: 6
-    floorType: 1
-  - x: 2
-    y: 0
-    z: 6
-    floorType: 1
-  - x: 3
-    y: 0
-    z: 6
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 6
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 5
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 5
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 5
-    floorType: 0
-  - x: -1
-    y: 0
-    z: 5
-    floorType: 0
-  - x: 0
-    y: 0
-    z: 5
-    floorType: 0
-  - x: 1
-    y: 0
-    z: 5
-    floorType: 0
-  - x: 2
-    y: 0
-    z: 5
-    floorType: 0
-  - x: 3
-    y: 0
-    z: 5
-    floorType: 0
-  - x: 4
-    y: 0
-    z: 5
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 4
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 4
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 4
-    floorType: 1
-  - x: -1
-    y: 0
-    z: 4
-    floorType: 1
-  - x: 0
-    y: 0
-    z: 4
-    floorType: 1
-  - x: 1
-    y: 0
-    z: 4
-    floorType: 1
-  - x: 2
-    y: 0
-    z: 4
-    floorType: 1
-  - x: 3
-    y: 0
-    z: 4
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 4
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 3
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 3
-    floorType: 0
-  - x: -2
-    y: 0
-    z: 3
-    floorType: 0
-  - x: -1
-    y: 0
-    z: 3
-    floorType: 0
-  - x: 0
-    y: 0
-    z: 3
-    floorType: 0
-  - x: 1
-    y: 0
-    z: 3
-    floorType: 0
-  - x: 2
-    y: 0
-    z: 3
-    floorType: 0
-  - x: 3
-    y: 0
-    z: 3
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 3
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 2
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 2
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 2
-    floorType: 1
-  - x: -1
-    y: 0
-    z: 2
-    floorType: 1
-  - x: 0
-    y: 0
-    z: 2
-    floorType: 1
-  - x: 1
-    y: 0
-    z: 2
-    floorType: 1
-  - x: 2
-    y: 0
-    z: 2
-    floorType: 1
-  - x: 3
-    y: 0
-    z: 2
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 2
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 1
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 1
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 1
-    floorType: 0
-  - x: -1
-    y: 0
-    z: 1
-    floorType: 0
-  - x: 0
-    y: 0
-    z: 1
-    floorType: 0
-  - x: 1
-    y: 0
-    z: 1
-    floorType: 0
-  - x: 2
-    y: 0
-    z: 1
-    floorType: 0
-  - x: 3
-    y: 0
-    z: 1
-    floorType: 0
-  - x: 4
-    y: 0
-    z: 1
-    floorType: 0
-  - x: -4
-    y: 0
-    z: 0
-    floorType: 0
-  - x: -3
-    y: 0
-    z: 0
-    floorType: 1
-  - x: -2
-    y: 0
-    z: 0
-    floorType: 1
-  - x: -1
-    y: 0
-    z: 0
-    floorType: 1
-  - x: 0
-    y: 0
-    z: 0
-    floorType: 1
-  - x: 1
-    y: 0
-    z: 0
-    floorType: 1
-  - x: 2
-    y: 0
-    z: 0
-    floorType: 1
-  - x: 3
-    y: 0
-    z: 0
-    floorType: 1
-  - x: 4
-    y: 0
-    z: 0
-    floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 8
+    _floorType: 3
+  - _x: -3
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 8
+    _floorType: 3
+  - _x: -4
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 7
+    _floorType: 3
+  - _x: -2
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 7
+    _floorType: 3
+  - _x: 4
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 6
+    _floorType: 3
+  - _x: -1
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 6
+    _floorType: 3
+  - _x: 3
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 5
+    _floorType: 2
+  - _x: 0
+    _y: 0
+    _z: 5
+    _floorType: 2
+  - _x: 1
+    _y: 0
+    _z: 5
+    _floorType: 2
+  - _x: 2
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 4
+    _floorType: 2
+  - _x: 0
+    _y: 0
+    _z: 4
+    _floorType: 2
+  - _x: 1
+    _y: 0
+    _z: 4
+    _floorType: 2
+  - _x: 2
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 3
+    _floorType: 2
+  - _x: 0
+    _y: 0
+    _z: 3
+    _floorType: 2
+  - _x: 1
+    _y: 0
+    _z: 3
+    _floorType: 2
+  - _x: 2
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 2
+    _floorType: 3
+  - _x: -1
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 2
+    _floorType: 3
+  - _x: 3
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 1
+    _floorType: 3
+  - _x: -2
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 1
+    _floorType: 3
+  - _x: 4
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 0
+    _floorType: 3
+  - _x: -3
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 0
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 0
+    _floorType: 3

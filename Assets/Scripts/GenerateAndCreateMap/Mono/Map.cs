@@ -9,30 +9,30 @@ namespace GenerateAndCreateMap.Mono
 {
     public class Map : MonoBehaviour
     {
-        private IFloorFactory factory;
-        private List<IPoint> points;
-        private List<Floor> floorsMap = new();
+        private IFloorFactory _factory;
+        private List<IPoint> _points;
+        private List<Floor> _floorsMap = new();
 
         [Inject]
         void Construct(IFloorFactory factory, List<IPoint> points)
         {
             Debug.Log($"Constructing Map");
-            this.factory = factory;
-            this.points = points;
+            _factory = factory;
+            _points = points;
             CreateMap();
         }
 
         void CreateMap()
         {
-            foreach (var point in points)
+            foreach (var point in _points)
             {
-                var floor = factory.CreateFloor(point, transform);
+                var floor = _factory.CreateFloor(point, transform);
                 floor.Initialize(point);
-                floorsMap.Add(floor);
+                _floorsMap.Add(floor);
             }
-            Debug.Log($"Map created {floorsMap.Count}");
+            Debug.Log($"Map created {_floorsMap.Count}");
         }
 
-        public List<Floor> GetFloorsMap() => floorsMap;
+        public List<Floor> GetFloorsMap() => _floorsMap;
     }
 }

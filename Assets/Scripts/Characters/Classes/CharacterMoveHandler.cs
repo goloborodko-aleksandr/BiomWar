@@ -14,9 +14,9 @@ namespace Characters.Classes
 {
     public class CharacterMoveHandler : IDisposable
     {
-        private Player player;
-        private IInput input;
-        private Map map;
+        private Player _player;
+        private IInput _input;
+        private Map _map;
 
 
         private CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -25,15 +25,15 @@ namespace Characters.Classes
         CharacterMoveHandler(Player player, Map map, IInput input)
         {
             Debug.Log($"Creating CharacterMoveManager");
-            this.player = player;
-            this.map = map;
-            this.input = input;
-            //init пока так
-            var startFloor = this.map.GetFloorsMap().Last();
-            var variants = GetVariantsPath(this.player, startFloor);
-            this.player.Init(startFloor, variants);
+            _player = player;
+            _map = map;
+            _input = input;
+            //init пока так прокину zenject
+            var startFloor = this._map.GetFloorsMap().Last();
+            var variants = GetVariantsPath(this._player, startFloor);
+            _player.Init(startFloor, variants);
             //
-            this.input
+            _input
                 .OnDirectionInput
                 .Subscribe(Path)
                 .AddTo(compositeDisposable);
@@ -41,12 +41,12 @@ namespace Characters.Classes
 
         private void Path(IPoint point)
         {
-            var eligibleFloors = GetVariantsPath(player, player.CurrentFloor);
+            var eligibleFloors = GetVariantsPath(_player, _player.CurrentFloor);
             var floor = eligibleFloors.FirstOrDefault(i => i.GetPoint() == point.GetPoint());
             if (eligibleFloors.Contains(floor))
             {
-                var newEligibleFloors = GetVariantsPath(player, floor);
-                player.Move(floor, newEligibleFloors);    
+                var newEligibleFloors = GetVariantsPath(_player, floor);
+                _player.Move(floor, newEligibleFloors);    
             }
         }
         
@@ -54,7 +54,7 @@ namespace Characters.Classes
         private List<Floor> GetVariantsPath(BaseCharacter character, Floor floorAround)
         {
             int distance = character.CharacterSpeed / 4 < 1 ? 1 : character.CharacterSpeed / 4;
-            var eligibleFloors = map.GetFloorsMap().Where(i =>
+            var eligibleFloors = _map.GetFloorsMap().Where(i =>
             {
                 var delta = floorAround.GetPoint() - i.GetPoint();
                 return !(

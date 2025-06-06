@@ -7,22 +7,22 @@ namespace Characters.Classes
 {
     public class Fsm
     {
-        private IState currentState;
-        private Dictionary<Type, IState> states = new Dictionary<Type, IState>();
-        private readonly Subject<Type> onStateChanged = new Subject<Type>();
-        public Observable<Type> OnStateChanged => onStateChanged;
-        public IState CurrentState => currentState;
+        private IState _currentState;
+        private Dictionary<Type, IState> _states = new Dictionary<Type, IState>();
+        private readonly Subject<Type> _onStateChanged = new Subject<Type>();
+        public Observable<Type> OnStateChanged => _onStateChanged;
+        public IState CurrentState => _currentState;
 
         public void AddState(IState state)
         {
-            states.Add(state.GetType(), state);
+            _states.Add(state.GetType(), state);
         }
         
         public void OverrideState(IState oldState, IState newState)
         {
-            if (states.ContainsKey(oldState.GetType()))
+            if (_states.ContainsKey(oldState.GetType()))
             {
-                states[oldState.GetType()] = newState;
+                _states[oldState.GetType()] = newState;
             }
             else
             {
@@ -33,19 +33,19 @@ namespace Characters.Classes
         public void ChangeState<T>() where T : IState
         {
             var type = typeof(T);
-            if(currentState?.GetType() == type)return;
-            if (states.TryGetValue(type, out var newCurrentState))
+            if(_currentState?.GetType() == type)return;
+            if (_states.TryGetValue(type, out var newCurrentState))
             {
-                currentState?.ExitState();
-                currentState = newCurrentState;
-                onStateChanged.OnNext(type);
-                currentState?.EnterState();
+                _currentState?.ExitState();
+                _currentState = newCurrentState;
+                _onStateChanged.OnNext(type);
+                _currentState?.EnterState();
             }
         }
 
         public void Update()
         {
-            currentState?.Update();
+            _currentState?.Update();
         }
     }
 }
