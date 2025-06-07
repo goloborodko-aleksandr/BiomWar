@@ -16,135 +16,135 @@ MonoBehaviour:
   - _x: -4
     _y: 0
     _z: 8
+    _floorType: 1
+  - _x: -3
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 8
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 8
+    _floorType: 1
+  - _x: -4
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 7
+    _floorType: 3
+  - _x: -2
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 7
+    _floorType: 3
+  - _x: 4
+    _y: 0
+    _z: 7
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 6
+    _floorType: 3
+  - _x: -1
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 6
+    _floorType: 3
+  - _x: 3
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 6
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 5
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 5
     _floorType: 2
-  - _x: -3
-    _y: 0
-    _z: 8
-    _floorType: 0
-  - _x: -2
-    _y: 0
-    _z: 8
-    _floorType: 0
-  - _x: -1
-    _y: 0
-    _z: 8
-    _floorType: 0
   - _x: 0
     _y: 0
-    _z: 8
+    _z: 5
     _floorType: 0
   - _x: 1
     _y: 0
-    _z: 8
-    _floorType: 0
-  - _x: 2
-    _y: 0
-    _z: 8
-    _floorType: 0
-  - _x: 3
-    _y: 0
-    _z: 8
-    _floorType: 0
-  - _x: 4
-    _y: 0
-    _z: 8
+    _z: 5
     _floorType: 2
-  - _x: -4
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: -3
-    _y: 0
-    _z: 7
-    _floorType: 3
-  - _x: -2
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: -1
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: 0
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: 1
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: 2
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: 3
-    _y: 0
-    _z: 7
-    _floorType: 3
-  - _x: 4
-    _y: 0
-    _z: 7
-    _floorType: 0
-  - _x: -4
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: -3
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: -2
-    _y: 0
-    _z: 6
-    _floorType: 3
-  - _x: -1
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: 0
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: 1
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: 2
-    _y: 0
-    _z: 6
-    _floorType: 3
-  - _x: 3
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: 4
-    _y: 0
-    _z: 6
-    _floorType: 0
-  - _x: -4
-    _y: 0
-    _z: 5
-    _floorType: 0
-  - _x: -3
-    _y: 0
-    _z: 5
-    _floorType: 0
-  - _x: -2
-    _y: 0
-    _z: 5
-    _floorType: 0
-  - _x: -1
-    _y: 0
-    _z: 5
-    _floorType: 4
-  - _x: 0
-    _y: 0
-    _z: 5
-    _floorType: 4
-  - _x: 1
-    _y: 0
-    _z: 5
-    _floorType: 4
   - _x: 2
     _y: 0
     _z: 5
@@ -172,139 +172,139 @@ MonoBehaviour:
   - _x: -1
     _y: 0
     _z: 4
-    _floorType: 4
-  - _x: 0
-    _y: 0
-    _z: 4
-    _floorType: 4
-  - _x: 1
-    _y: 0
-    _z: 4
-    _floorType: 4
-  - _x: 2
-    _y: 0
-    _z: 4
-    _floorType: 0
-  - _x: 3
-    _y: 0
-    _z: 4
-    _floorType: 0
-  - _x: 4
-    _y: 0
-    _z: 4
-    _floorType: 0
-  - _x: -4
-    _y: 0
-    _z: 3
-    _floorType: 0
-  - _x: -3
-    _y: 0
-    _z: 3
-    _floorType: 0
-  - _x: -2
-    _y: 0
-    _z: 3
-    _floorType: 0
-  - _x: -1
-    _y: 0
-    _z: 3
-    _floorType: 4
-  - _x: 0
-    _y: 0
-    _z: 3
-    _floorType: 4
-  - _x: 1
-    _y: 0
-    _z: 3
-    _floorType: 4
-  - _x: 2
-    _y: 0
-    _z: 3
-    _floorType: 0
-  - _x: 3
-    _y: 0
-    _z: 3
-    _floorType: 0
-  - _x: 4
-    _y: 0
-    _z: 3
-    _floorType: 0
-  - _x: -4
-    _y: 0
-    _z: 2
-    _floorType: 0
-  - _x: -3
-    _y: 0
-    _z: 2
-    _floorType: 0
-  - _x: -2
-    _y: 0
-    _z: 2
-    _floorType: 3
-  - _x: -1
-    _y: 0
-    _z: 2
     _floorType: 0
   - _x: 0
     _y: 0
-    _z: 2
-    _floorType: 0
-  - _x: 1
-    _y: 0
-    _z: 2
-    _floorType: 0
-  - _x: 2
-    _y: 0
-    _z: 2
-    _floorType: 3
-  - _x: 3
-    _y: 0
-    _z: 2
-    _floorType: 0
-  - _x: 4
-    _y: 0
-    _z: 2
-    _floorType: 0
-  - _x: -4
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: -3
-    _y: 0
-    _z: 1
-    _floorType: 3
-  - _x: -2
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: -1
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: 0
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: 1
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: 2
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: 3
-    _y: 0
-    _z: 1
-    _floorType: 3
-  - _x: 4
-    _y: 0
-    _z: 1
-    _floorType: 0
-  - _x: -4
-    _y: 0
-    _z: 0
+    _z: 4
     _floorType: 2
+  - _x: 1
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 4
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 3
+    _floorType: 2
+  - _x: 0
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 3
+    _floorType: 2
+  - _x: 2
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 3
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: -2
+    _y: 0
+    _z: 2
+    _floorType: 3
+  - _x: -1
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 2
+    _floorType: 3
+  - _x: 3
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: 4
+    _y: 0
+    _z: 2
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: -3
+    _y: 0
+    _z: 1
+    _floorType: 3
+  - _x: -2
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: -1
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 0
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 1
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 2
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: 3
+    _y: 0
+    _z: 1
+    _floorType: 3
+  - _x: 4
+    _y: 0
+    _z: 1
+    _floorType: 0
+  - _x: -4
+    _y: 0
+    _z: 0
+    _floorType: 1
   - _x: -3
     _y: 0
     _z: 0
@@ -336,4 +336,4 @@ MonoBehaviour:
   - _x: 4
     _y: 0
     _z: 0
-    _floorType: 2
+    _floorType: 1

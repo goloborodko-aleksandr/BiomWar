@@ -15,7 +15,6 @@ namespace Installs
         [SerializeField] GrassFloor _grassPrefab;
         [SerializeField] LavaFloor _lavaPrefab;
         [SerializeField] WaterFloor _waterPrefab;
-        [SerializeField] StoneFloor _stonePrefab;
         [SerializeField] GroundFloor _groundPrefab;
         [SerializeField] private float _scaleStep;
         [SerializeField] private FloorMap _floorMap;
@@ -34,7 +33,6 @@ namespace Installs
                 { FloorType.Grass, _grassPrefab },
                 { FloorType.Water, _waterPrefab },
                 { FloorType.Lava, _lavaPrefab },
-                { FloorType.Stone, _stonePrefab },
                 { FloorType.Ground,  _groundPrefab},
             };
             
@@ -43,7 +41,6 @@ namespace Installs
                 { FloorType.Grass, true },
                 { FloorType.Water, true },
                 { FloorType.Lava, true },
-                { FloorType.Stone, true },
                 { FloorType.Ground,  true},
             };
 

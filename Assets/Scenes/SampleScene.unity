@@ -154,11 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _map: {fileID: 1886532396}
-  _grassPrefab: {fileID: 5065242379754235095, guid: f8c22f3019bec98409555d4d11d2818b, type: 3}
+  _grassPrefab: {fileID: 6997260607858968735, guid: cb5505ff7424dc644949915d8faff55b, type: 3}
   _lavaPrefab: {fileID: 1781255936823215962, guid: 1e109c7ca586d894286b148cd13cea35, type: 3}
   _waterPrefab: {fileID: 6985793738174118406, guid: 44cfe371b5658744abaf39ac4d062b69, type: 3}
-  _stonePrefab: {fileID: 1924727922580287356, guid: 4d896ade849b460409fdcc617dd4631c, type: 3}
-  _groundPrefab: {fileID: 3175876514407118846, guid: 005f6c94435a7fb4daa72b0b38ddfbf7, type: 3}
+  _groundPrefab: {fileID: 3005522593609491786, guid: 005f6c94435a7fb4daa72b0b38ddfbf7, type: 3}
   _scaleStep: 1
   _floorMap: {fileID: 11400000, guid: 867794c8fa44d91449aa2b4ddc50a967, type: 2}
 --- !u!114 &489995637
@@ -338,6 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -422,6 +422,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1354008610}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

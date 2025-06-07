@@ -2,7 +2,6 @@
 {
     Grass,
     Ground,
-    Stone,
     Lava,
     Water,
 }
