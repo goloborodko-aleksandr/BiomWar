@@ -19,7 +19,7 @@ namespace Characters.Classes
         public void EnterState()
         {
             _character.TargetFloor.ComeCharacter(_character);
-            _character.transform.position = _character.CurrentFloor.transform.position + Vector3.up;
+            _character.transform.position = _character.CurrentFloor.transform.position + Vector3.up * 1.3f;
             fsm.ChangeState<Idle>();
         }
 

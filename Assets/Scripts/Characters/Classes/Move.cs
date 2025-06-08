@@ -23,7 +23,7 @@ namespace Characters.Classes
         public void EnterState()
         {
             _start = _player.transform.position;
-            _end = _player.TargetFloor.transform.position + Vector3.up;
+            _end = _player.TargetFloor.transform.position + Vector3.up * 1.3f;
             _player.transform.position = _end;
             _player.TargetFloor.ComeCharacter(_player);
             Observable
