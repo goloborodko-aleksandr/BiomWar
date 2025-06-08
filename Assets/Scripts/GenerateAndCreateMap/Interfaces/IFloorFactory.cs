@@ -1,4 +1,4 @@
-﻿using GenerateAndCreateMap.Mono;
+﻿using GenerateAndCreateMap.Floors;
 using UnityEngine;
 
 namespace GenerateAndCreateMap.Interfaces

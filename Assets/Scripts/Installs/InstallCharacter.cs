@@ -1,6 +1,8 @@
-﻿using Characters.Classes;
+﻿using Characters;
 using Characters.Interfaces;
 using Characters.Mono;
+using Characters.Player;
+using Characters.Player.Input;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;

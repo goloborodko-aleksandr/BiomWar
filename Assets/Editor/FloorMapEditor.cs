@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using GenerateAndCreateMap;
 using UnityEditor;
 using UnityEngine;
-using GenerateAndCreateMap.Classes;
 
 [CustomEditor(typeof(FloorMap))]
 public class FloorMapEditor : Editor

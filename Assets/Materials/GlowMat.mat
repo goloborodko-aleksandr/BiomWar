@@ -69,7 +69,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GlowIntensity: 20
+    - _GlowIntensity: 10
     - _GlowPower: 0
     - _InnerRadius: 0
     - _Metallic: 0
@@ -90,6 +90,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0.21853065, a: 1}
-    - _GlowColorA: {r: 1, g: 1, b: 1, a: 1}
+    - _GlowColorA: {r: 0.9243889, g: 0, b: 1, a: 1}
     - _GlowColorB: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

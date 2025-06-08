@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GenerateAndCreateMap.Mono;
+using GenerateAndCreateMap.Floors;
 
 namespace Characters.Interfaces
 {

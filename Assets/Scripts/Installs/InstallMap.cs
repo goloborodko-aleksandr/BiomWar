@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using GenerateAndCreateMap.Classes;
+using GenerateAndCreateMap;
+using GenerateAndCreateMap.Floors;
 using GenerateAndCreateMap.Interfaces;
-using GenerateAndCreateMap.Mono;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
