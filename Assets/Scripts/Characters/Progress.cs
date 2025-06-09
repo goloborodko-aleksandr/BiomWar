@@ -8,9 +8,9 @@ namespace Characters
     {
         private readonly ReactiveProperty<float> _progressTimeProperty = new ReactiveProperty<float>(0f);
         private ReadOnlyReactiveProperty<float> _progressTimeReadOnly;
+        public ReadOnlyReactiveProperty<float> ProgressTimeProperty => _progressTimeReadOnly;
         private bool _isRunning = false;
         private readonly CompositeDisposable _disposable = new CompositeDisposable();
-        public ReadOnlyReactiveProperty<float> ProgressTimeProperty => _progressTimeReadOnly;
         private readonly Subject<Unit> _progressDone = new Subject<Unit>();
         public Observable<Unit> ProgressDone => _progressDone;
 

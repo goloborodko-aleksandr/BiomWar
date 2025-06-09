@@ -51,7 +51,6 @@ Shader "Lpk/LightModel/ToonLightBase"
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
 
             CBUFFER_START(UnityPerMaterial)
-                float4 _BaseColor;
                 float _ShadowStep;
                 float _ShadowStepSmooth;
                 float _SpecularStep;
@@ -61,6 +60,11 @@ Shader "Lpk/LightModel/ToonLightBase"
                 float _RimStep;
                 float4 _RimColor;
             CBUFFER_END
+
+            // GPU Instancing support
+            UNITY_INSTANCING_BUFFER_START(Props)
+                UNITY_DEFINE_INSTANCED_PROP(float4, _BaseColor)
+            UNITY_INSTANCING_BUFFER_END(Props)
 
             struct Attributes
             {
@@ -99,9 +103,9 @@ Shader "Lpk/LightModel/ToonLightBase"
                 output.positionCS = vertexInput.positionCS;
                 output.positionWS = vertexInput.positionWS;
                 output.uv = input.uv;
-                output.normalWS = float4(normalInput.normalWS, viewDirWS.x);
-                output.tangentWS = float4(normalInput.tangentWS, viewDirWS.y);
-                output.bitangentWS = float4(normalInput.bitangentWS, viewDirWS.z);
+                output.normalWS = float4(normalInput.normalWS, 0.0);
+                output.tangentWS = float4(normalInput.tangentWS, 0.0);
+                output.bitangentWS = float4(normalInput.bitangentWS, 0.0);
                 output.viewDirWS = viewDirWS;
                 output.fogCoord = ComputeFogFactor(output.positionCS.z);
                 return output;
@@ -129,6 +133,7 @@ Shader "Lpk/LightModel/ToonLightBase"
                 float NL = saturate(dot(N, L)) * 0.5 + 0.5;
 
                 float4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, uv);
+                float4 baseColor = UNITY_ACCESS_INSTANCED_PROP(Props, _BaseColor);
 
                 float specularNH = smoothstep((1 - _SpecularStep * 0.05) - _SpecularStepSmooth * 0.05, (1 - _SpecularStep * 0.05) + _SpecularStepSmooth * 0.05, NH);
                 float shadowNL = smoothstep(_ShadowStep - _ShadowStepSmooth, _ShadowStep + _ShadowStepSmooth, NL);
@@ -138,9 +143,9 @@ Shader "Lpk/LightModel/ToonLightBase"
 
                 float rim = smoothstep((1 - _RimStep) - _RimStepSmooth * 0.5, (1 - _RimStep) + _RimStepSmooth * 0.5, 0.5 - NV);
 
-                float3 diffuse = _MainLightColor.rgb * baseMap.rgb * _BaseColor.rgb * shadowNL * shadow;
+                float3 diffuse = _MainLightColor.rgb * baseMap.rgb * baseColor.rgb * shadowNL * shadow;
                 float3 specular = _SpecularColor.rgb * shadow * shadowNL * specularNH;
-                float3 ambient = rim * _RimColor.rgb + SampleSH(N) * _BaseColor.rgb * baseMap.rgb;
+                float3 ambient = rim * _RimColor.rgb + SampleSH(N) * baseColor.rgb * baseMap.rgb;
 
                 float3 finalColor = diffuse + ambient + specular;
                 float3 fogged = MixFog(finalColor, input.fogCoord);
@@ -149,7 +154,7 @@ Shader "Lpk/LightModel/ToonLightBase"
             ENDHLSL
         }
 
-        // Outline pass
+        // Outline pass (оставим без изменений, т.к. не участвует в батчинге)
         Pass
         {
             Name "Outline"

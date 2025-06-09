@@ -6,18 +6,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Characters.Mono
+namespace Characters.Player
 {
     public class PlayerProgressBar: MonoBehaviour, IProgressBar
     {
         [SerializeField] private Image _progressBar;
         [SerializeField] private Vector3 _offset;
-        private Player.Player _player;
+        private Characters.Player.Player _player;
         private Camera _mainCamera;
 
 
         [Inject]
-        public void Construct(Player.Player player)
+        public void Construct(Characters.Player.Player player)
         {
             _player = player;
             _mainCamera = Camera.main;
