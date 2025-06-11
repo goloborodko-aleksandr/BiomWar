@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Characters.Interfaces;
 using GenerateAndCreateMap.Floors;
 using UnityEngine;
 using Zenject;
@@ -22,10 +23,14 @@ namespace Characters
         private protected Floor targetFloor;
         private protected Progress progress;
         public Progress Progress => progress;
+        private protected IAnimator characterAnimator;
+        public IAnimator CharacterAnimator => characterAnimator;
         
         [Inject]
-        public void Construct(Progress progress)
+        public void Construct(Progress progress, IAnimator characterAnimator)
         {
+            this.characterAnimator = characterAnimator;
+            this.characterAnimator.Init(this);
             this.progress = progress;
             coolDown = _coolDown;
             characterLevel = _characterLevel;

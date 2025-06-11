@@ -1,8 +1,9 @@
-﻿using Characters;
+﻿using System.Linq;
+using Characters;
+using Characters.CharacterPlayer;
+using Characters.CharacterPlayer.Input;
 using Characters.Interfaces;
-using Characters.Mono;
-using Characters.Player;
-using Characters.Player.Input;
+using GenerateAndCreateMap;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -14,7 +15,7 @@ namespace Installs
         [SerializeField] private Player _player;
         [SerializeField] private MapCenter _mapCenter;
         [SerializeField] private PlayerCamera _playerCamera;
-        [FormerlySerializedAs("_squareShow")] [SerializeField] private Square square;
+        [SerializeField] private Square square;
         [SerializeField] private PlayerProgressBar _playerProgressBar;
         [SerializeField] private Canvas _playGameCanvas;
 
@@ -49,17 +50,40 @@ namespace Installs
                 .FromNew()
                 .AsSingle()
                 .NonLazy();
-
+            
+            
             Container
                 .Bind<Player>()
                 .FromComponentInNewPrefab(_player)
-                .AsSingle();
+                .AsSingle()
+                .OnInstantiated<Player>((ctx, player) =>
+                {
+                    var map = ctx.Container.Resolve<Map>();
+                    var path = ctx.Container.Resolve<EligiblePath>();
+
+                    var startFloor = map.GetFloorsMap().Last();
+                    var variants = path.GetVariantsPath(player, startFloor);
+                    player.Init(startFloor, variants);
+                });
+
+            Container
+                .Bind<IAnimator>()
+                .To<StandartAnimator>()
+                .FromNew()
+                .AsCached();
+
+            Container
+                .Bind<EligiblePath>()
+                .FromNew()
+                .AsCached()
+                .NonLazy();
 
             Container
                 .BindInterfacesAndSelfTo<BiomInput>()
                 .FromNew()
                 .AsSingle()
                 .NonLazy();
+                
 
             Container
                 .Bind<IProgressBar>()

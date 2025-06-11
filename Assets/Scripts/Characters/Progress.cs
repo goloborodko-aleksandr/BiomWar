@@ -30,7 +30,7 @@ namespace Characters
                 .Select(_ => Time.deltaTime * speed)
                 .Scan(0f, (total, step) => total + step)
                 .Select(progress => Mathf.Clamp01(progress / coolDown))
-                .TakeUntil(progress => progress  >= 1)
+                .TakeUntil(progress => progress >= 1)
                 .Subscribe(progress =>
                 {
                     _progressTimeProperty.Value = progress;

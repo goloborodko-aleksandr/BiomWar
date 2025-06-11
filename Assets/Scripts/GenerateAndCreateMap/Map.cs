@@ -13,7 +13,7 @@ namespace GenerateAndCreateMap
         private List<Floor> _floorsMap = new();
 
         [Inject]
-        void Construct(IFloorFactory factory, List<IPoint> points)
+       public void Construct(IFloorFactory factory, List<IPoint> points)
         {
             Debug.Log("Constructing Map");
             _factory = factory;
@@ -21,9 +21,9 @@ namespace GenerateAndCreateMap
             CreateMap();
         }
 
-        void CreateMap()
+        private void CreateMap()
         {
-            var block = new MaterialPropertyBlock();
+            // var block = new MaterialPropertyBlock();
 
             foreach (var point in _points)
             {
@@ -33,7 +33,7 @@ namespace GenerateAndCreateMap
 
                 // if (floor.TryGetComponent(out MeshRenderer renderer))
                 // {
-                //     // !!!решим проблемы с шейдером или разобьем на 2 паса тогда сделаем норм дроуколы!!!!
+                //     // !!!надо менять шейдер
                 //     block.SetColor("_BaseColor", color);
                 //     renderer.SetPropertyBlock(block);
                 // }

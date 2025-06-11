@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d631a1095be4169915b87cb08073049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 518591310256024236, guid: 7f6788b365259bf4cb2888fe03e46fc7, type: 3}
+  _player: {fileID: 8203102025609043734, guid: 7f6788b365259bf4cb2888fe03e46fc7, type: 3}
   _mapCenter: {fileID: 1767422554}
   _playerCamera: {fileID: 8768480631017855883}
   square: {fileID: 7052109920762907709, guid: 164677594d99fbb439330be837f73b53, type: 3}
