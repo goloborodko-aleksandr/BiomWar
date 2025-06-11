@@ -33,7 +33,7 @@ namespace GenerateAndCreateMap
 
                 // if (floor.TryGetComponent(out MeshRenderer renderer))
                 // {
-                //     // !!!надо менять шейдер
+                //     // !!!надо поменять шейдер, с этим батчинга не будет
                 //     block.SetColor("_BaseColor", color);
                 //     renderer.SetPropertyBlock(block);
                 // }
