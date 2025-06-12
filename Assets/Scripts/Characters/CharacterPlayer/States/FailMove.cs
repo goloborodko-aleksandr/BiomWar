@@ -19,10 +19,22 @@ namespace Characters.CharacterPlayer.States
         }
         public void EnterState()
         {
-            Debug.Log("FAIL");
-            _character.Progress.StartProgress(_character.CharacterSpeed, _character.CoolDown);
-            _character.CharacterAnimator.Idle();
-            fsm.ChangeState<Idle>();
+            Sequence sequence = DOTween.Sequence()
+                .AppendCallback(() =>
+                {
+                    _character.CharacterAnimator.Jump();
+                })
+                .Append(_character.transform
+                    .DOJump(_character.transform.position, 1, 1, 0.45f)
+                    .SetEase(Ease.Linear)
+                    .OnComplete(() =>
+                    {
+                        Debug.Log("Fail message => low speed");
+                        _character.Progress.StartProgress(_character.CharacterSpeed, _character.CoolDown);
+                        _character.CharacterAnimator.Idle();
+                        fsm.ChangeState<Idle>();
+                    })
+                );
         }
         
         

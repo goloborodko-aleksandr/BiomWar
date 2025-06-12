@@ -224,7 +224,7 @@ MonoBehaviour:
   _coolDown: 5
   _characterLevel: 1
   _characterSpeed: 2
-  _characterLucky: 1
+  _characterLucky: 2
 --- !u!1 &2523790250614413318
 GameObject:
   m_ObjectHideFlags: 0

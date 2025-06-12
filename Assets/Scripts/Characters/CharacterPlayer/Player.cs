@@ -12,7 +12,8 @@ namespace Characters.CharacterPlayer
         public void Move(Floor target, List<Floor> floors)
         {
             if(status.CurrentState?.GetType() != typeof(Idle) || progress.ProgressTimeProperty.CurrentValue < 1 || !TargetFloor.IsBattleFloor) return;
-            if (Random.Range(0, characterSpeed) == 0)
+            bool isMove = Random.Range(0, characterSpeed) > 0;
+            if (isMove)
             {
                 status.ChangeState<FailMove>();
                 return;
