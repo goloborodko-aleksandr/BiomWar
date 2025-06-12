@@ -32,9 +32,14 @@ namespace GenerateAndCreateMap.Floors
 
         public void ComeCharacter(BaseCharacter character)
         {
-            character.CurrentFloor?.Characters.Remove(character);
             Characters.Add(character);
             character.CurrentFloor = this;
+        }
+
+        public void LiveCharacter(BaseCharacter character)
+        {
+            character.CurrentFloor?.Characters.Remove(character);
+            character.CurrentFloor = null;
         }
 
         public Vector3 GetPoint() => new Vector3(X, Y, Z);

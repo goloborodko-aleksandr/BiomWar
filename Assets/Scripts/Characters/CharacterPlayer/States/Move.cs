@@ -21,6 +21,7 @@ namespace Characters.CharacterPlayer.States
         {
             _start = _character.transform.position;
             _end = _character.TargetFloor.transform.position + Vector3.up;
+            _character.CurrentFloor.LiveCharacter(_character);
             Sequence sequence = DOTween.Sequence()
                 .Append(_character.transform
                     .DOLookAt(_end, 0.2f, AxisConstraint.Y)
