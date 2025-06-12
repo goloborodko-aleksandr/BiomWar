@@ -13,7 +13,6 @@ namespace GenerateAndCreateMap.Floors
         public int Y => _y;
         public int Z => _z;
         public bool IsWalkable => _isWalkableMap[_floorType];
-        public bool IsBattleFloor => Characters.Count < 2;
         private Dictionary<FloorType, bool> _isWalkableMap;
         private FloorType _floorType;
 
