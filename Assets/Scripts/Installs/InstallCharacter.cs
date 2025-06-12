@@ -15,7 +15,7 @@ namespace Installs
         [SerializeField] private Player _player;
         [SerializeField] private MapCenter _mapCenter;
         [SerializeField] private PlayerCamera _playerCamera;
-        [SerializeField] private Square square;
+        [SerializeField] private Square _square;
         [SerializeField] private PlayerProgressBar _playerProgressBar;
         [SerializeField] private Canvas _playGameCanvas;
 
@@ -28,7 +28,7 @@ namespace Installs
 
             Container
                 .Bind<IWayVisualizer>()
-                .FromComponentInNewPrefab(square)
+                .FromComponentInNewPrefab(_square)
                 .AsSingle()
                 .NonLazy();
             Container

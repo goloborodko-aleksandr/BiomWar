@@ -223,7 +223,7 @@ MonoBehaviour:
   _player: {fileID: 8203102025609043734, guid: 7f6788b365259bf4cb2888fe03e46fc7, type: 3}
   _mapCenter: {fileID: 1767422554}
   _playerCamera: {fileID: 8768480631017855883}
-  square: {fileID: 7052109920762907709, guid: 164677594d99fbb439330be837f73b53, type: 3}
+  _square: {fileID: 7052109920762907709, guid: 164677594d99fbb439330be837f73b53, type: 3}
   _playerProgressBar: {fileID: 4792147622712794358, guid: 75e603653eac18f4aa6602affb80f710, type: 3}
   _playGameCanvas: {fileID: 622299969}
 --- !u!1 &622299966

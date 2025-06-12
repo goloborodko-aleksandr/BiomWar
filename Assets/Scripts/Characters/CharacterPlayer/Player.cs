@@ -10,7 +10,7 @@ namespace Characters.CharacterPlayer
     {
         public void Move(Floor target, List<Floor> floors)
         {
-            if(status.CurrentState?.GetType() != typeof(Idle) || progress.ProgressTimeProperty.CurrentValue < 1) return;
+            if(status.CurrentState?.GetType() != typeof(Idle) || progress.ProgressTimeProperty.CurrentValue < 1 || TargetFloor.IsBattleFloor) return;
             eligibleFloors = floors;
             targetFloor = target;
             status.ChangeState<Move>();
