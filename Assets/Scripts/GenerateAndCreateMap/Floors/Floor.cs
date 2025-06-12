@@ -32,17 +32,20 @@ namespace GenerateAndCreateMap.Floors
             _isWalkableMap = isWalkableMap;
         }
 
-        public void ComeCharacter(BaseCharacter character)
+        public virtual void ComeCharacter(BaseCharacter character)
         {
+            Debuff(character);
             Characters.Add(character);
             character.CurrentFloor = this;
         }
 
 
-        public void LiveCharacter(BaseCharacter character)
+        public virtual void LiveCharacter(BaseCharacter character)
         {
             character.CurrentFloor?.Characters.Remove(character);
         }
+
+        public abstract void Debuff(BaseCharacter character);
 
         public Vector3 GetPoint() => new Vector3(X, Y, Z);
 
