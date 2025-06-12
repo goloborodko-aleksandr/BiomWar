@@ -2,6 +2,7 @@
 using Characters.CharacterPlayer.States;
 using Characters.Interfaces;
 using GenerateAndCreateMap.Floors;
+using UnityEngine;
 using Zenject;
 
 namespace Characters.CharacterPlayer
@@ -11,6 +12,11 @@ namespace Characters.CharacterPlayer
         public void Move(Floor target, List<Floor> floors)
         {
             if(status.CurrentState?.GetType() != typeof(Idle) || progress.ProgressTimeProperty.CurrentValue < 1 || !TargetFloor.IsBattleFloor) return;
+            if (Random.Range(0, characterSpeed) == 0)
+            {
+                status.ChangeState<FailMove>();
+                return;
+            }
             eligibleFloors = floors;
             targetFloor = target;
             status.ChangeState<Move>();
@@ -24,6 +30,7 @@ namespace Characters.CharacterPlayer
             status.AddState(new Init(status,this));
             status.AddState(new Idle(status,this));
             status.AddState(new Move(status,this));
+            status.AddState(new FailMove(status,this));
             status.ChangeState<Init>();
         }
 
