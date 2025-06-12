@@ -39,7 +39,6 @@ namespace GenerateAndCreateMap.Floors
         public void LiveCharacter(BaseCharacter character)
         {
             character.CurrentFloor?.Characters.Remove(character);
-            character.CurrentFloor = null;
         }
 
         public Vector3 GetPoint() => new Vector3(X, Y, Z);
