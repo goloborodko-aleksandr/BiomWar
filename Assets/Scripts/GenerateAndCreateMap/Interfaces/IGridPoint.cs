@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GenerateAndCreateMap.Interfaces
 {
-    public interface IPoint
+    public interface IGridPoint
     {
         public int X { get; }
         public int Y { get; }

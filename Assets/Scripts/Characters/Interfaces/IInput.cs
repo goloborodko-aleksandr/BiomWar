@@ -6,6 +6,6 @@ namespace Characters.Interfaces
 {
     public interface IInput
     {
-        public Observable<IPoint> OnDirectionInput { get; }
+        public Observable<IGridPoint> OnDirectionInput { get; }
     }
 }

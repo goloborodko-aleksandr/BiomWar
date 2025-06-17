@@ -18,7 +18,7 @@ namespace Installs
         [SerializeField] GroundFloor _groundPrefab;
         [SerializeField] private float _scaleStep;
         [SerializeField] private FloorMap _floorMap;
-        private List<Point> points => _floorMap.points;
+        private List<GridPoint> points => _floorMap.points;
         public override void InstallBindings()
         {
             Container
@@ -27,6 +27,13 @@ namespace Installs
                 .AsSingle()
                 .NonLazy();
             
+            var floorColorMap = new Dictionary<FloorType, Color>
+            {
+                { FloorType.Grass, new Color(0.2800419f,0.8301887f,0.2062417f) },
+                { FloorType.Water, new Color(0f, 0.5311722f, 1f) },
+                { FloorType.Lava, new Color(0.8313726f, 0.5027158f, 0.2078431f) },
+                { FloorType.Ground,  new Color(0.4779873f, 0.3507593f, 0.2419998f)},
+            };
             
             var prefabMap = new Dictionary<FloorType, Floor>
             {
@@ -45,10 +52,14 @@ namespace Installs
             };
 
             Container
+                .Bind<Dictionary<FloorType, Color>>()
+                .FromInstance(floorColorMap)
+                .AsSingle();
+            
+            Container
                 .Bind<Dictionary<FloorType, bool>>()
                 .FromInstance(isWalkableMap)
                 .AsSingle();
-
             
             Container
                 .Bind<IFloorFactory>()
@@ -57,8 +68,8 @@ namespace Installs
                 .WithArguments(prefabMap, _scaleStep);
 
             Container
-                .Bind<List<IPoint>>()
-                .FromInstance(points.Select(i=>(IPoint)i).ToList())
+                .Bind<List<IGridPoint>>()
+                .FromInstance(points.Select(i=>(IGridPoint)i).ToList())
                 .AsSingle();
         }
     }

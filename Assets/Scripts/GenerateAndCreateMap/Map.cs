@@ -9,21 +9,23 @@ namespace GenerateAndCreateMap
     public class Map : MonoBehaviour
     {
         private IFloorFactory _factory;
-        private List<IPoint> _points;
+        private List<IGridPoint> _points;
         private List<Floor> _floorsMap = new();
+        private Dictionary<FloorType, Color> _floorColorMap = new();
 
         [Inject]
-       public void Construct(IFloorFactory factory, List<IPoint> points)
+       public void Construct(IFloorFactory factory, List<IGridPoint> points, Dictionary<FloorType, Color> floorColorMap)
         {
             Debug.Log("Constructing Map");
             _factory = factory;
             _points = points;
+            _floorColorMap = floorColorMap;
             CreateMap();
         }
 
         private void CreateMap()
         {
-            // var block = new MaterialPropertyBlock();
+            var block = new MaterialPropertyBlock();
 
             foreach (var point in _points)
             {
@@ -31,12 +33,11 @@ namespace GenerateAndCreateMap
                 floor.Initialize(point);
                 _floorsMap.Add(floor);
 
-                // if (floor.TryGetComponent(out MeshRenderer renderer))
-                // {
-                //     // !!!надо поменять шейдер, с этим батчинга не будет
-                //     block.SetColor("_BaseColor", color);
-                //     renderer.SetPropertyBlock(block);
-                // }
+                if (floor.TryGetComponent(out MeshRenderer renderer))
+                {
+                    block.SetColor("_BaseColor", _floorColorMap[floor.GetFloorType()]);
+                    renderer.SetPropertyBlock(block);
+                }
             }
 
             Debug.Log($"Map created {_floorsMap.Count}");

@@ -6,7 +6,7 @@ using Zenject;
 
 namespace GenerateAndCreateMap.Floors
 {
-    public abstract class Floor : MonoBehaviour, IPoint
+    public abstract class Floor : MonoBehaviour, IGridPoint
     {
         private int _x, _y, _z;
         public int X => _x;
@@ -50,12 +50,12 @@ namespace GenerateAndCreateMap.Floors
 
         public FloorType GetFloorType() => _floorType;
 
-        public void Initialize(IPoint point)
+        public void Initialize(IGridPoint gridPoint)
         {
-            _x = point.X;
-            _y = point.Y;
-            _z = point.Z;
-            _floorType = point.GetFloorType();
+            _x = gridPoint.X;
+            _y = gridPoint.Y;
+            _z = gridPoint.Z;
+            _floorType = gridPoint.GetFloorType();
         }
     }
 }

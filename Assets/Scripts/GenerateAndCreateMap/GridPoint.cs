@@ -6,7 +6,7 @@ using UnityEngine;
 namespace GenerateAndCreateMap
 {
     [Serializable]
-    public class Point : IPoint
+    public class GridPoint : IGridPoint
     {
         [SerializeField] private int _x, _y, _z;
         [SerializeField] private FloorType _floorType;
@@ -15,7 +15,7 @@ namespace GenerateAndCreateMap
         public int Y => _y;
         public int Z => _z;
 
-        public Point(int x, int y, int z)
+        public GridPoint(int x, int y, int z)
         {
             _x = x;
             _y = y;

@@ -20,9 +20,9 @@ namespace GenerateAndCreateMap
             _scaleStep = scaleStep;
         }
         
-        public Floor CreateFloor(IPoint point, Transform transform)
+        public Floor CreateFloor(IGridPoint gridPoint, Transform transform)
         {
-            return _container.InstantiatePrefabForComponent<Floor>(_prefabMap[point.GetFloorType()],point.GetPoint() * _scaleStep, Quaternion.identity, transform);
+            return _container.InstantiatePrefabForComponent<Floor>(_prefabMap[gridPoint.GetFloorType()],gridPoint.GetPoint() * _scaleStep, Quaternion.identity, transform);
         }
     }
 }

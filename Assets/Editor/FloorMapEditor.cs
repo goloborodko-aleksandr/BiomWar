@@ -30,7 +30,7 @@ public class FloorMapEditor : Editor
 
             if (floorMap.points == null)
             {
-                floorMap.points = new List<Point>();
+                floorMap.points = new List<GridPoint>();
             }
 
             SerializedProperty pointsProp = serializedObject.FindProperty("points");

@@ -10,9 +10,9 @@ namespace Characters.CharacterPlayer.Input
     public class BiomInput : IInput, IInitializable, IDisposable
     {
         private Camera _cameraInput;
-        private readonly Subject<IPoint> _onDirectionInput = new Subject<IPoint>();
+        private readonly Subject<IGridPoint> _onDirectionInput = new Subject<IGridPoint>();
         private readonly CompositeDisposable _disposable = new CompositeDisposable();
-        public Observable<IPoint> OnDirectionInput => _onDirectionInput;
+        public Observable<IGridPoint> OnDirectionInput => _onDirectionInput;
 
         public void Initialize()
         {
@@ -24,7 +24,7 @@ namespace Characters.CharacterPlayer.Input
                 .Select(ray =>
                 {
                     if (Physics.Raycast(ray, out RaycastHit hit))
-                        if (hit.collider.TryGetComponent<IPoint>(out IPoint point))
+                        if (hit.collider.TryGetComponent<IGridPoint>(out IGridPoint point))
                         {
                             return point;
                         }

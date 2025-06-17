@@ -30,10 +30,10 @@ namespace Characters.CharacterPlayer
                 .AddTo(compositeDisposable);
         }
 
-        private void Path(IPoint point)
+        private void Path(IGridPoint gridPoint)
         {
             var eligibleFloors = _eligiblePath.GetVariantsPath(_player, _player.CurrentFloor);
-            var floor = eligibleFloors.FirstOrDefault(i => i.GetPoint() == point.GetPoint());
+            var floor = eligibleFloors.FirstOrDefault(i => i.GetPoint() == gridPoint.GetPoint());
             if (eligibleFloors.Contains(floor))
             {
                 var newEligibleFloors = _eligiblePath.GetVariantsPath(_player, floor);
