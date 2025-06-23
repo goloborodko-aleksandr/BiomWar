@@ -7,17 +7,11 @@ namespace Characters
     public class Progress : IDisposable
     {
         private readonly ReactiveProperty<float> _progressTimeProperty = new ReactiveProperty<float>(0f);
-        private ReadOnlyReactiveProperty<float> _progressTimeReadOnly;
-        public ReadOnlyReactiveProperty<float> ProgressTimeProperty => _progressTimeReadOnly;
+        public ReadOnlyReactiveProperty<float> ProgressTimeProperty => _progressTimeProperty;
         private bool _isRunning = false;
         private readonly CompositeDisposable _disposable = new CompositeDisposable();
         private readonly Subject<Unit> _progressDone = new Subject<Unit>();
         public Observable<Unit> ProgressDone => _progressDone;
-
-        public Progress()
-        {
-            _progressTimeReadOnly = _progressTimeProperty.ToReadOnlyReactiveProperty();
-        }
 
         public void StartProgress(int speed, float coolDown)
         {
